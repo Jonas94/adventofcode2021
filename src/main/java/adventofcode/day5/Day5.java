@@ -19,9 +19,22 @@ public class Day5 {
         initGrid();
 
         for (Line line : lines) {
+            if(line.getFromX() > line.getToX()){
+                int tempX = line.getFromX();
+                line.setFromX(line.getToX());
+                line.setToX(tempX);
+            }
+
+            if(line.getFromY() > line.getToY()){
+                int tempY = line.getFromY();
+                line.setFromY(line.getToY());
+                line.setToY(tempY);
+            }
+
+
             for (int i = line.getFromX(); i <= line.getToX(); i++) {
                 for (int j = line.getFromY(); j <= line.getToY(); j++) {
-                    grid[j][i]++;
+                    grid[i][j]++;
                 }
             }
         }
