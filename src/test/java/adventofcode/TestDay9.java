@@ -12,7 +12,6 @@ public class TestDay9 {
         Day9 day = new Day9();
         long result = day.part1("testinput9.txt");
         assertEquals(15, result);
-
         System.out.println(day.part1("input9.txt"));
     }
 
@@ -21,7 +20,6 @@ public class TestDay9 {
         Day9 day = new Day9();
         long result = day.part2("testinput9.txt");
         assertEquals(1134, result);
-
         System.out.println(day.part2("input9.txt"));
     }
 }
