@@ -18,7 +18,7 @@ public class TestDayTemplate {
     @Test
     public void part2() {
         DayTemplate day = new DayTemplate();
-        long result = day.part2("TestinputTemplate.txt");
+        long result = day.part2("testinputTemplate.txt");
         assertEquals(0, result);
         System.out.println(day.part2("inputTemplate.txt"));
     }
