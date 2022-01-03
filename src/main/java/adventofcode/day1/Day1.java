@@ -33,8 +33,7 @@ public class Day1 {
     }
 
     private List<Integer> readStringsToNumbers(String inputFile) {
-        FileHandler fileHandler = new FileHandler();
-        List<String> numberStrings = fileHandler.readFile(getClass().getClassLoader().getResource(inputFile).getFile());
+        List<String> numberStrings = FileHandler.readFileIntoList(inputFile);
         List<Integer> numbers = new ArrayList<>();
 
         for (String number : numberStrings) {

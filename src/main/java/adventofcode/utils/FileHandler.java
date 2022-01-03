@@ -11,14 +11,15 @@ public class FileHandler {
 	private static final Logger LOGGER = Logger.getLogger(FileHandler.class.getName());
 	private static final String FILE_COULD_NOT_BE_FOUND = "File could not be found";
 
-	public List<String> readFile(String file){
+	public static List<String> readFileIntoList(String inputFile){
+		String file = FileHandler.class.getClassLoader().getResource(inputFile).getFile();
 		List<String> list = new ArrayList<>();
 		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 			String line = br.readLine();
 			list.add(line);
 			while (line != null) {
 				line = br.readLine();
-				if(line != null) { //Temporary bug fix
+				if(line != null) {
 					list.add(line);
 				}
 			}

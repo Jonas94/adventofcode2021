@@ -7,7 +7,7 @@ import java.util.List;
 public class Day7 {
 
     public long part1(String inputFile) {
-        List<String> lines = parseInputToList(inputFile);
+        List<String> lines = FileHandler.readFileIntoList(inputFile);
 
         String[] positions = lines.get(0).split(",");
 
@@ -44,8 +44,7 @@ public class Day7 {
     }
 
     public long part2(String inputFile) {
-
-        List<String> lines = parseInputToList(inputFile);
+        List<String> lines = FileHandler.readFileIntoList(inputFile);
         String[] positions = lines.get(0).split(",");
         int highestPosition = findHighestPosition(positions);
         int cheapest = Integer.MAX_VALUE;
@@ -65,10 +64,5 @@ public class Day7 {
         }
 
         return cheapest;
-    }
-
-    private List<String> parseInputToList(String inputFile) {
-        FileHandler fileHandler = new FileHandler();
-        return fileHandler.readFile(getClass().getClassLoader().getResource(inputFile).getFile());
     }
 }

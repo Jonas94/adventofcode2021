@@ -7,8 +7,7 @@ import java.util.List;
 
 public class Day3 {
     public long solveDay3Part1(String inputFile) {
-        FileHandler fileHandler = new FileHandler();
-        List<String> binaryStrings = fileHandler.readFile(getClass().getClassLoader().getResource(inputFile).getFile());
+        List<String> binaryStrings = FileHandler.readFileIntoList(inputFile);
 
         int gammaRate = findRate(binaryStrings, false);
         int epsilonRate = findRate(binaryStrings, true);
@@ -48,8 +47,7 @@ public class Day3 {
     }
 
     public int solveDay3Part2(String inputFile) {
-        FileHandler fileHandler = new FileHandler();
-        List<String> allBinaryNumbers = fileHandler.readFile(getClass().getClassLoader().getResource(inputFile).getFile());
+        List<String> allBinaryNumbers = FileHandler.readFileIntoList(inputFile);
 
         int oxygenGeneratorRating = findOxygenGeneratorRating(new ArrayList<>(allBinaryNumbers));
         int co2ScrubberRating = findCo2ScrubberRating(new ArrayList<>(allBinaryNumbers));

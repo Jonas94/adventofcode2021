@@ -31,8 +31,7 @@ public class Day2 {
 
 
     private List<Command> readStringsToCommandList(String inputFile, Position position, boolean part2) {
-        FileHandler fileHandler = new FileHandler();
-        List<String> inputStrings = fileHandler.readFile(getClass().getClassLoader().getResource(inputFile).getFile());
+        List<String> inputStrings = FileHandler.readFileIntoList(inputFile);
         List<Command> commands = new ArrayList<>();
 
         for (String row : inputStrings) {

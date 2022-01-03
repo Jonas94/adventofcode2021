@@ -1,6 +1,5 @@
 package adventofcode.day6;
 
-
 import adventofcode.utils.FileHandler;
 
 import java.util.ArrayList;
@@ -10,11 +9,9 @@ import java.util.Map;
 
 public class Day6 {
 
-
     public long part1(String inputFile, int generations) {
         List<Integer> fishAges = parseInputToListOfNumbers(inputFile);
         for (int i = 0; i < generations; i++) {
-
             for (int j = 0; j < fishAges.size(); j++) {
                 if (fishAges.get(j) == 0) {
                     fishAges.add(9); //because it shouldn't age the first day
@@ -41,7 +38,6 @@ public class Day6 {
             Map<Integer, Long> tempFishMap = new HashMap<>(fishMap);
 
             for (var entry : fishMap.entrySet()) {
-
                 int currentFishAge = entry.getKey();
 
                 decreaseEntriesOfFishAge(tempFishMap, currentFishAge, entry.getValue());
@@ -81,8 +77,7 @@ public class Day6 {
     }
 
     private List<Integer> parseInputToListOfNumbers(String inputFile) {
-        FileHandler fileHandler = new FileHandler();
-        List<String> input = fileHandler.readFile(getClass().getClassLoader().getResource(inputFile).getFile());
+        List<String> input = FileHandler.readFileIntoList(inputFile);
 
         List<Integer> fishAges = new ArrayList<>();
         String[] inputStrings = input.get(0).split(",");

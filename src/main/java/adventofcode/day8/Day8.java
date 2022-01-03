@@ -8,7 +8,7 @@ import java.util.*;
 public class Day8 {
 
     public long part1(String inputFile) {
-        List<String> lines = parseInputToList(inputFile);
+        List<String> lines = FileHandler.readFileIntoList(inputFile);
 
         int numberOfOccurrences = 0;
 
@@ -27,7 +27,7 @@ public class Day8 {
     }
 
     public long part2(String inputFile) {
-        List<String> lines = parseInputToList(inputFile);
+        List<String> lines = FileHandler.readFileIntoList(inputFile);
 
         int outputValue = 0;
 
@@ -209,10 +209,5 @@ public class Day8 {
         char[] tempArray = inputString.toCharArray();
         Arrays.sort(tempArray);
         return new String(tempArray);
-    }
-
-    private List<String> parseInputToList(String inputFile) {
-        FileHandler fileHandler = new FileHandler();
-        return fileHandler.readFile(getClass().getClassLoader().getResource(inputFile).getFile());
     }
 }

@@ -1,6 +1,5 @@
 package adventofcode.day5;
 
-
 import adventofcode.utils.FileHandler;
 
 import java.util.ArrayList;
@@ -8,7 +7,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Day5 {
-
 
     private int[][] grid;
 
@@ -19,13 +17,13 @@ public class Day5 {
         initGrid();
 
         for (Line line : lines) {
-            if(line.getFromX() > line.getToX()){
+            if (line.getFromX() > line.getToX()) {
                 int tempX = line.getFromX();
                 line.setFromX(line.getToX());
                 line.setToX(tempX);
             }
 
-            if(line.getFromY() > line.getToY()){
+            if (line.getFromY() > line.getToY()) {
                 int tempY = line.getFromY();
                 line.setFromY(line.getToY());
                 line.setToY(tempY);
@@ -141,8 +139,6 @@ public class Day5 {
             }
         }
 
-        lines = lines.stream().filter(line -> line.isDiagonal()).collect(Collectors.toList());
-
         printGrid();
 
         return calculateNumbersOfAtLeastTwoOverlappingLinesInGrid();
@@ -163,7 +159,6 @@ public class Day5 {
 
 
     private void printGrid() {
-
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
                 System.out.print(grid[i][j]);
@@ -173,12 +168,10 @@ public class Day5 {
     }
 
     private List<Line> parseInputToLines(String inputFile) {
-        FileHandler fileHandler = new FileHandler();
-        List<String> inputStrings = fileHandler.readFile(getClass().getClassLoader().getResource(inputFile).getFile());
+        List<String> inputStrings = FileHandler.readFileIntoList(inputFile);
 
         List<Line> lines = new ArrayList<>();
         for (String input : inputStrings) {
-
             String[] points = input.split(" -> ");
             lines.add(new Line(points));
         }

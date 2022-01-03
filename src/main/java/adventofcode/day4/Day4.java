@@ -73,8 +73,7 @@ public class Day4 {
     }
 
     public void parseFileIntoNumbersAndBoards(String inputFile) {
-        FileHandler fileHandler = new FileHandler();
-        List<String> inputStrings = fileHandler.readFile(getClass().getClassLoader().getResource(inputFile).getFile());
+        List<String> inputStrings = FileHandler.readFileIntoList(inputFile);
         numbersToBeDrawn.addAll(Arrays.stream(inputStrings.get(0).split(",")).toList());
 
         for (int i = 2; i < inputStrings.size(); i = i + 6) {

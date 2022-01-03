@@ -9,7 +9,7 @@ import java.util.List;
 public class Day9 {
 
     public long part1(String inputFile) {
-        List<String> lines = parseInputToList(inputFile);
+        List<String> lines = FileHandler.readFileIntoList(inputFile);
         int[][] grid = initGrid(lines);
         int sumOfLowestPoints = 0;
         List<Point> lowestPoints = findLowestPoints(grid);
@@ -22,7 +22,7 @@ public class Day9 {
     }
 
     public long part2(String inputFile) {
-        List<String> lines = parseInputToList(inputFile);
+        List<String> lines = FileHandler.readFileIntoList(inputFile);
 
         List<Integer> basinSizes = new ArrayList<>();
         int[][] grid = initGrid(lines);
@@ -107,11 +107,6 @@ public class Day9 {
             }
         }
         return grid;
-    }
-
-    private List<String> parseInputToList(String inputFile) {
-        FileHandler fileHandler = new FileHandler();
-        return fileHandler.readFile(getClass().getClassLoader().getResource(inputFile).getFile());
     }
 
     private static boolean isAllTrue(boolean[] array) {
